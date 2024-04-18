@@ -5,10 +5,10 @@ from gapminder import gapminder
 def plot():
     figura = (
         so.Plot(
-            gapminder[gapminder.continent == "Oceania"],
+            gapminder,
             x="year",
-            y="lifeExp",
-            color="country",
+            y="gdpPercap",
+            color="continent",
         )
         .add(so.Line())
         .label(
@@ -23,3 +23,5 @@ def plot():
         autor="La cátedra",
         figura=figura,
     )
+
+gdpmean = gapminder.groupby("year")
