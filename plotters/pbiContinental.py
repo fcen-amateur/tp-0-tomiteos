@@ -1,10 +1,10 @@
 import seaborn.objects as so
 from gapminder import gapminder
-import numpy as np
+import numpy as np #para poder calcular la media
 
-gdpmean = gapminder.groupby(["year","continent"])["gdpPercap"]
-gdpmean = gdpmean.agg(np.mean)
-gdpmean = gdpmean.reset_index()
+gdpmean = gapminder.groupby(["year","continent"])["gdpPercap"] #agrupo por año y continente todos los paises de gapminder y luego tomo solo los valores del pbi
+gdpmean = gdpmean.agg(np.mean) # calculo la media del pbi de los paises en cada continente
+gdpmean = gdpmean.reset_index() # ya que groupby no me deja un dataframe, reseteo los indexs para que puedan ser leidos en el plot.
 
 def plot():
     figura = (
